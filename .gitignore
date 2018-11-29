@@ -410,3 +410,4 @@ ASALocalRun/
 
 
 # End of https://www.gitignore.io/api/unrealengine,visualstudio
+/Content/Level/JHTest.umap
