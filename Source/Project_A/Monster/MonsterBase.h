@@ -14,7 +14,9 @@ class PROJECT_A_API AMonsterBase : public ACharacter
 // Fields
 public:
 protected:
+	UPROPERTY()
 	float _maxHp = 100;
+	UPROPERTY()
 	float _hp;
 private:
 
@@ -35,6 +37,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// Apply Damage. Return val is remain hp.
+	UFUNCTION(BlueprintCallable)
 	float GetDamage(float damage);
+	UFUNCTION(BlueprintCallable)
 	float GetHp() { return _hp; }
 };
