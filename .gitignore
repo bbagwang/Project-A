@@ -413,5 +413,7 @@ ASALocalRun/
 /Content/Level/JHTest.umap
 /Content/AnimStarterPack/*
 /Content/InfinityBladeWarriors/*
+/Content/InfinityBladeEffects/*
 !/Content/AnimStarterPack/.gitkeep
 !/Content/InfinityBladeWarriors/.gitkeep
+!/Content/InfinityBladeEffects/.gitkeep

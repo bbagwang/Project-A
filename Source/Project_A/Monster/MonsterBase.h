@@ -41,4 +41,6 @@ public:
 	float GetDamage(float damage);
 	UFUNCTION(BlueprintCallable)
 	float GetHp() { return _hp; }
+	UFUNCTION(BlueprintCallable)
+	float GetHpRate() { return _hp / _maxHp;}
 };
