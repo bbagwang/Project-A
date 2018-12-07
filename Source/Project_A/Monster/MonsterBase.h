@@ -10,26 +10,32 @@ UCLASS()
 class PROJECT_A_API AMonsterBase : public ACharacter
 {
 	GENERATED_BODY()
+	
 
 // Fields
 public:
 protected:
-	UPROPERTY()
+	UPROPERTY(Replicated)
 	float _maxHp = 100;
-	UPROPERTY()
+	UPROPERTY(ReplicatedUsing=OnRep_Flag)
 	float _hp;
 private:
 
 // Methods
+private:
+	UFUNCTION()
+	void OnRep_Flag();
+	void Die();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	virtual void Die();
+	virtual void DieFunc() {};
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, class AActor* DamageCauser) override;
 
 public:
 	// Sets default values for this character's properties
-	AMonsterBase();
+	AMonsterBase(const FObjectInitializer& ObjectInitializer);
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const;
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -43,4 +49,7 @@ public:
 	float GetHp() { return _hp; }
 	UFUNCTION(BlueprintCallable)
 	float GetHpRate() { return _hp / _maxHp;}
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void BPDie();
 };
